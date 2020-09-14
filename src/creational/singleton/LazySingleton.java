@@ -6,7 +6,6 @@ package creational.singleton;
  * </p>
  * 
  * @author pawan1773
- *
  */
 public class LazySingleton {
 
@@ -14,7 +13,7 @@ public class LazySingleton {
 
     /**
      * <p>
-     * Constructor is made private to avoid instance creation using construction.
+     * Constructor is made private to avoid instance creation using constructor.
      * Null check is added to prevent instance using reflection.
      * <p>
      */
@@ -26,15 +25,15 @@ public class LazySingleton {
 
     /**
      * <p>
+     * To return instance of {@linkplain LazySingleton} class.
+     * </p>
      * 
      * @return instance of {@linkplain LazySingleton}
      */
     public static LazySingleton getInstance() {
-        
         if (null == INSTANCE) {
             INSTANCE = new LazySingleton();
         }
-
         return INSTANCE;
     }
 }
