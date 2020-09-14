@@ -1,5 +1,7 @@
 package creational.singleton;
 
+import java.io.Serializable;
+
 /**
  * <p>
  * This is a basic lazily initialised singleton class.
@@ -7,7 +9,9 @@ package creational.singleton;
  * 
  * @author pawan1773
  */
-public class LazySingleton {
+public class LazySingleton implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private static LazySingleton INSTANCE;
 
@@ -37,4 +41,16 @@ public class LazySingleton {
         }
         return INSTANCE;
     }
+
+    /**
+     * <p>
+     * To prevent new object creation during serialization.
+     * </p>
+     * 
+     * @return instance of {@linkplain LazySingleton}
+     */
+    protected Object readResolve() {
+        return INSTANCE;
+    }
+
 }
