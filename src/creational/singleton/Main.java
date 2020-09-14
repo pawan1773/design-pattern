@@ -44,9 +44,19 @@ public class Main {
         ois.close();
         System.out.println(instance4 == instance5);
 
-        final ThreadSafeLazySingleton instance6 = ThreadSafeLazySingleton.getInstance();
-        final ThreadSafeLazySingleton instance7 = ThreadSafeLazySingleton.getInstance();
+        /** try to break using clone */
+        final LazySingleton instance6 = LazySingleton.getInstance();
+        LazySingleton instance7;
+        try {
+            instance7 = (LazySingleton) instance6.clone();
+            System.out.println(instance7);
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
 
-        System.out.println(instance6 == instance7);
+        final ThreadSafeLazySingleton instance8 = ThreadSafeLazySingleton.getInstance();
+        final ThreadSafeLazySingleton instance9 = ThreadSafeLazySingleton.getInstance();
+
+        System.out.println(instance8 == instance9);
     }
 }

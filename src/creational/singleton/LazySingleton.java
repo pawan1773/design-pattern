@@ -9,7 +9,7 @@ import java.io.Serializable;
  * 
  * @author pawan1773
  */
-public class LazySingleton implements Serializable {
+public class LazySingleton implements Cloneable, Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -53,4 +53,13 @@ public class LazySingleton implements Serializable {
         return INSTANCE;
     }
 
+    /**
+     * <p>
+     * To prevent cloning.
+     * </p>
+     */
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        throw new CloneNotSupportedException();
+    }
 }
