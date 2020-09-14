@@ -13,8 +13,9 @@ public class LazySingleton {
 
     /**
      * <p>
-     * Constructor is made private to avoid instance creation using constructor.
-     * Null check is added to prevent instance using reflection.
+     * Constructor is made private to avoid instance creation inside another class
+     * using constructor. Null check is added to prevent instance creation using
+     * reflection.
      * <p>
      */
     private LazySingleton() {
