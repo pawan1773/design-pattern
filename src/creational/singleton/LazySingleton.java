@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * <p>
- * This is a basic lazily initialised singleton class.
+ * This is a lazily initialised singleton class.
  * </p>
  * 
  * @author pawan1773

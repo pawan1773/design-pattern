@@ -16,7 +16,7 @@ public class Main {
         final LazySingleton instance2 = LazySingleton.getInstance();
 
         /** check if both instances refer to same object */
-        System.out.println(instance1 == instance2);
+        System.out.println("LazySingleton: " + (instance1 == instance2));
 
         /** try to break using reflection */
         try {
@@ -42,7 +42,7 @@ public class Main {
         final ObjectInputStream ois = new ObjectInputStream(new FileInputStream("test.ser"));
         final LazySingleton instance5 = (LazySingleton) ois.readObject();
         ois.close();
-        System.out.println(instance4 == instance5);
+        System.out.println("Post serialization/deserialization: " + (instance4 == instance5));
 
         /** try to break using clone */
         final LazySingleton instance6 = LazySingleton.getInstance();
@@ -57,6 +57,21 @@ public class Main {
         final ThreadSafeLazySingleton instance8 = ThreadSafeLazySingleton.getInstance();
         final ThreadSafeLazySingleton instance9 = ThreadSafeLazySingleton.getInstance();
 
-        System.out.println(instance8 == instance9);
+        System.out.println("ThreadSafeLazySingleton: " + (instance8 == instance9));
+
+        final SingletonEnum instance10 = SingletonEnum.INSTANCE;
+        final SingletonEnum instance11 = SingletonEnum.INSTANCE;
+
+        System.out.println("SingletonEnum: " + (instance10 == instance11));
+
+        final EagerSingleton instance12 = EagerSingleton.getInstance();
+        final EagerSingleton instance13 = EagerSingleton.getInstance();
+
+        System.out.println("EagerSingleton: " + (instance12 == instance13));
+
+        final BillPughSingleton instance14 = BillPughSingleton.getInstance();
+        final BillPughSingleton instance15 = BillPughSingleton.getInstance();
+
+        System.out.println("BillPughSingleton: " + (instance14 == instance15));
     }
 }
