@@ -2,14 +2,14 @@ package creational.abstract_factory;
 
 public class FlatShapeFactory extends AbstractFactory {
 
-	@Override
-	Shape getShape(final String shapeType) {
-		if ("RECTANGLE".equalsIgnoreCase(shapeType)) {
-			return new Rectangle();
-		} else if ("SQUARE".equalsIgnoreCase(shapeType)) {
-			return new Square();
-		}
-		return null;
-	}
-
+    @Override
+    Shape getShape(final String shapeType) {
+        Shape shape = null;
+        if ("RECTANGLE".equalsIgnoreCase(shapeType)) {
+            shape = new Rectangle();
+        } else if ("SQUARE".equalsIgnoreCase(shapeType)) {
+            shape = new Square();
+        }
+        return shape;
+    }
 }

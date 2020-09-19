@@ -3,14 +3,14 @@ package creational.factory;
 public class ShapeFactory {
 
     public static Shape getShape(final String shapeType) {
+        Shape shape = null;
         if ("Rectangle".equalsIgnoreCase(shapeType)) {
-            return new Rectangle();
+            shape = new Rectangle();
         } else if ("Circle".equalsIgnoreCase(shapeType)) {
-            return new Circle();
+            shape = new Circle();
         } else if ("Square".equalsIgnoreCase(shapeType)) {
-            return new Square();
-        } else {
-            return null;
+            shape = new Square();
         }
+        return shape;
     }
 }
